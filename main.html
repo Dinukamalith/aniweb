@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Anime Image Generator</title>
-</head>
-<body>
-	<h1>Anime Image Generator</h1>
-	<button onclick="generateImage()">Generate Image</button>
-	<img id="anime-image" src="" alt="Anime Image">
-	<script>
-		function generateImage() {
-			fetch("https://nekonya.classydev.fr/api/v1/random/neko")
-				.then(response => response.json())
-				.then(data => {
-					document.getElementById("anime-image").src = data.url;
-				});
-		}
-	</script>
-</body>
-</html>
+  <html>
+  <head>
+    <title>Anime Image Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="apple-mobile-web-app-title" content="Anime Image Generator">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style>
+      body {
+        background-image: url('https://telegra.ph/file/bbe1ec5ddc88210c0158c.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+        font-size: 24px;
+        padding: 12px;
+        border-radius: 8px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Anime Image Generator</h1>
+    <button onclick="generateImage()">Generate Image</button>
+    <br>
+    <a id="download-link" href="" download="anime-image.jpg"><button>Download Image</button></a>
+    <img id="anime-image" src="" alt="Anime Image">
+    <script>
+      function generateImage() {
+        fetch("https://nekonya.classydev.fr/api/v1/random/neko")
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById("anime-image").src = data.url;
+            document.getElementById("download-link").href = data.url;
+          });
+      }
+    </script>
+  </body>
+  </html>
+
