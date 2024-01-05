@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anime Image Generator</title>
+</head>
+<body>
+	<h1>Anime Image Generator</h1>
+	<button onclick="generateImage()">Generate Image</button>
+	<img id="anime-image" src="" alt="Anime Image">
+	<script>
+		function generateImage() {
+			fetch("https://nekonya.classydev.fr/api/v1/random/neko")
+				.then(response => response.json())
+				.then(data => {
+					document.getElementById("anime-image").src = data.url;
+				});
+		}
+	</script>
+</body>
+</html>
